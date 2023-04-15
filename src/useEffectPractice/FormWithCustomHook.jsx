@@ -1,27 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { useForm } from '../hooks/useForm';
 
 export const FormWithCustomHook = () => {
 
-    const [formState, setFormState] = useState({
+    const {formState, onInputChange, onResetForm, username, email, password} = useForm({
         username: '',
         email   : '',
         password: '',
     });
+    // const {username, email, password} = formState;
 
-    const {username, email, password} = formState;
-
-    const onInputChange = ({target}) => {
-        const { name, value } = target;
-        setFormState({
-            ...formState,
-            [name]: value
-        });
-    }
-
-    useEffect(() => {
-        console.log('useEffect called!');
-    },[]);
-    
     return (
         <>
             <h1>Formulario con custom Hook</h1>
@@ -50,6 +38,7 @@ export const FormWithCustomHook = () => {
                 value={password}
                 onChange={ onInputChange }
             />
+            <button onClick={ onResetForm } className='btn btn-primary mt-2'>Borrar</button>
             
         </>
     )
