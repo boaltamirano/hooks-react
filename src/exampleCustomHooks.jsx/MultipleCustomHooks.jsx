@@ -1,5 +1,5 @@
-import { useCounter } from "../hooks/useCounter";
-import { useFetch } from "../hooks/useFetch"
+import { useCounter, useFetch } from "../hooks";
+import { DetailsComponents, LoadingComponents } from "./";
 
 export const MultipleCustomHooks = () => {
 
@@ -11,20 +11,16 @@ export const MultipleCustomHooks = () => {
 
     return (
         <>
-            <h1>BreakingBad Quotes</h1>
+            <h1>Rick and Morty</h1>
             <hr/>
             {
                 isLoading
-                ? (
-                    <div className="alert alert-info text-center">
-                        Loading...
-                    </div>
-                ) : (
-                    <blockquote className="blockquote text-end">
-                        <p className="mb-1">{name}</p>
-                        <footer className="blockquote-footer">{species}</footer>
-                    </blockquote>
-                )
+                ? <LoadingComponents />
+                : <DetailsComponents 
+                    name={name}
+                    species={species}
+                />
+                
             }
 
             <button 
