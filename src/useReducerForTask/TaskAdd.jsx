@@ -1,6 +1,6 @@
 import { useForm } from "../hooks/useForm"
 
-export const ToDoAdd = ({onNewToDo}) => {
+export const TaskAdd = ({onNewTask}) => {
 
     const { description, onInputChange, onResetForm } = useForm({
         description: ''
@@ -10,13 +10,13 @@ export const ToDoAdd = ({onNewToDo}) => {
         event.preventDefault();
         if(description.length <= 1) return;
 
-        const newToDo = {
+        const newTask = {
             id         : new Date().getTime(),
             done       : false,
             description: description
         }
 
-        onNewToDo(newToDo);
+        onNewTask(newTask);
         onResetForm();
     }
 
@@ -34,7 +34,7 @@ export const ToDoAdd = ({onNewToDo}) => {
                 type="submit"
                 className="btn btn-outline-primary mt-1"
             >
-                Agregar
+                Add
             </button>
         </form>
     )

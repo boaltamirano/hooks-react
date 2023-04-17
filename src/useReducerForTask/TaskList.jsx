@@ -1,12 +1,12 @@
-import { ToDoItem } from "./ToDoItem"
+import { TaskItem } from "."
 
-export const ToDoList = ({states = []}) => {
+export const TaskList = ({states = []}) => {
     return (
         <>
             <ul className="list-group">
                 {
                     states.map( state => (
-                        <ToDoItem key={ state.id } state={state}/>
+                        <TaskItem key={ state.id } state={state}/>
                     ))
                 }
             </ul>

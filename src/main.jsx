@@ -13,12 +13,12 @@ import ReactDOM from 'react-dom/client'
 // import { CallbackHook } from './memoPractice/CallbackHook'
 // import { Padre } from './practiceMemo/Padre'
 // import './useReducer/intro-reducer';
-import { ToDoApp } from './useReducer/ToDoApp'
+import { TaskApp } from './useReducerForTask'
  
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-    <ToDoApp />
+    <TaskApp />
   // </React.StrictMode>,
 )
