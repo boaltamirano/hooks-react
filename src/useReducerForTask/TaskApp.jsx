@@ -1,48 +1,9 @@
-import { useEffect, useReducer } from "react"
-import { taskReducer, TaskList, TaskAdd } from "."
-
-const initialState = [
-    // {
-    //     id         : new Date().getTime() + 100,
-    //     description: 'Recolectar la piedra de la mente',
-    //     done       : false
-    // }
-]
-
-const init = () => {
-    return JSON.parse(localStorage.getItem('tasks')) || [];
-}
+import { TaskList, TaskAdd } from "."
+import { useTask } from "../hooks/useTask";
 
 export const TaskApp = () => {
 
-    const [state, dispatch] = useReducer(taskReducer, initialState, init);
-
-    useEffect(() => {
-        localStorage.setItem('tasks', JSON.stringify(state));
-    }, [state])
-
-    const handleNewTask = ( task ) => {
-        const action = {
-            type: '[Task] Add Task',
-            payload: task
-        }
-
-        dispatch(action);
-    }
-
-    const handleDeleteTask = ( id ) => {
-        dispatch({
-            type   : '[Task] Delete Task',
-            payload: id
-        })
-    }
-
-    const handleToggleTask = ( id ) => {
-        dispatch({
-            type   : '[Task] Toggle Task',
-            payload: id
-        });
-    }
+    const { state, handleDeleteTask, handleToggleTask, handleNewTask } = useTask();
 
     return (
         <>
@@ -60,7 +21,7 @@ export const TaskApp = () => {
                 <div className="col-5">
                     <h4>Agregar Task</h4>
                     <hr />
-                    <TaskAdd onNewTask={handleNewTask}/>
+                    <TaskAdd onNewTask={ handleNewTask }/>
                 </div>
             </div>
 
