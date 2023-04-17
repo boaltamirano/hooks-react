@@ -8,12 +8,14 @@ import ReactDOM from 'react-dom/client'
 // import { MultipleCustomHooks } from './exampleCustomHooks.jsx/MultipleCustomHooks'
 // import { FocusSreen } from './useRefPractice/FocusSreen'
 // import { Layout } from './useLayoutEffectPractice/Layout'
-import { Memorize } from './memoPractice/Memorize'
+// import { Memorize } from './memoPractice/Memorize'
+// import { MemoHook } from './memoPractice/MemoHook'
+import { CallbackHook } from './memoPractice/CallbackHook'
 
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-    <Memorize />
+    <CallbackHook />
   // </React.StrictMode>,
 )
