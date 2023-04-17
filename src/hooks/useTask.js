@@ -1,7 +1,6 @@
 import { useEffect, useReducer } from "react"
 import { taskReducer } from "../useReducerForTask";
 
-const initialState = []
 
 const init = () => {
     return JSON.parse(localStorage.getItem('tasks')) || [];
@@ -9,7 +8,7 @@ const init = () => {
 
 export const useTask = () => {
 
-    const [state, dispatch] = useReducer(taskReducer, initialState, init);
+    const [state, dispatch] = useReducer(taskReducer, [], init);
 
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(state));
@@ -38,10 +37,13 @@ export const useTask = () => {
         });
     }
 
+
     return {
         state, 
         handleDeleteTask, 
         handleToggleTask, 
-        handleNewTask
+        handleNewTask,
+        pendingTasksCount: state.filter( task => !task.done).length,
+        tasksCount: state.length
     }
 }

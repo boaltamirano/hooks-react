@@ -3,11 +3,11 @@ import { useTask } from "../hooks/useTask";
 
 export const TaskApp = () => {
 
-    const { state, handleDeleteTask, handleToggleTask, handleNewTask } = useTask();
+    const { state, tasksCount, pendingTasksCount, handleDeleteTask, handleToggleTask, handleNewTask } = useTask();
 
     return (
         <>
-            <h1>Task App</h1>
+            <h1>Task App: {tasksCount}, <small>pending: {pendingTasksCount}</small></h1>
             <hr />
 
             <div className="row">
@@ -24,8 +24,6 @@ export const TaskApp = () => {
                     <TaskAdd onNewTask={ handleNewTask }/>
                 </div>
             </div>
-
-            
         </>
     )
 }
