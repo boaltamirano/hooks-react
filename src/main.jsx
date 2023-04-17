@@ -10,12 +10,15 @@ import ReactDOM from 'react-dom/client'
 // import { Layout } from './useLayoutEffectPractice/Layout'
 // import { Memorize } from './memoPractice/Memorize'
 // import { MemoHook } from './memoPractice/MemoHook'
-import { CallbackHook } from './memoPractice/CallbackHook'
+// import { CallbackHook } from './memoPractice/CallbackHook'
+import { Padre } from './practiceMemo/Padre'
+
+import './useReducer/intro-reducer';
 
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-    <CallbackHook />
+    <Padre />
   // </React.StrictMode>,
 )
