@@ -30,6 +30,13 @@ export const TaskApp = () => {
         dispatch(action);
     }
 
+    const handleDeleteTask = ( id ) => {
+        dispatch({
+            type   : '[Task] Delete Task',
+            payload: id
+        })
+    }
+
     return (
         <>
             <h1>Task App</h1>
@@ -37,7 +44,7 @@ export const TaskApp = () => {
 
             <div className="row">
                 <div className="col-7">
-                    <TaskList states={state}/>
+                    <TaskList states={state} onDeleteTask={ handleDeleteTask }/>
                 </div>
                 <div className="col-5">
                     <h4>Agregar Task</h4>
