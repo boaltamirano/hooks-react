@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom';
 // import { HooksApp } from './HooksApp'
 // import { CounterApp } from './useStatePractice/CounterApp'
 // import { CounterWithCustomHook } from './useStatePractice/CounterWithCustomHook'
@@ -13,12 +14,15 @@ import ReactDOM from 'react-dom/client'
 // import { CallbackHook } from './memoPractice/CallbackHook'
 // import { Padre } from './practiceMemo/Padre'
 // import './useReducer/intro-reducer';
-import { TaskApp } from './useReducerForTask'
+// import { TaskApp } from './useReducerForTask'
+import { MainApp } from './useContext/MainApp'
  
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-    <TaskApp />
-  // </React.StrictMode>,
+  <BrowserRouter>
+    {/* <React.StrictMode> */}
+      <MainApp />
+    {/* </React.StrictMode>, */}
+  </BrowserRouter>
 )
